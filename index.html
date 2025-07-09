@@ -481,21 +481,7 @@
     <div class="notification" id="notification"></div>
 
     <script>
-        const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQkK19o0-_HtWs6MBeI8ZFKtp8Eiudwe-GkktdMIAZjon_tXfzT8rAnIS_P2emvCB6CYapkTqKAoYg0/pub?output=csv';
-
-        fetch(url)
-            .then(response => response.text())
-            .then(data => {
-            // CSV format: get first line, first column
-            const firstLine = data.split('\n')[0];
-            const message = firstLine.split(',')[0];
-            document.getElementById('customMessage').textContent = message;
-        })
-         .catch(error => {
-            console.error('Error fetching message:', error);
-            document.getElementById('customMessage').textContent = "Couldn't load message.";
-        });
-        
+       
         // Welcome messages array - easily editable
         const welcomeMessages = [
             "Hope you're having an amazing day ☀️",
@@ -523,7 +509,7 @@
         init();
         
         // Custom message (you can change this)
-        //let customMessage = "ITS BACK ONLINE, ILYSM BABE";
+        let customMessage = "ITS BACK ONLINE, ILYSM BABE";
 
         // Initialize app
         function init() {
@@ -586,9 +572,9 @@
             document.getElementById('memoriesPage').style.display = 'none';
         }
       
-        //const messageElement = document.getElementById('customMessage');
-        //messageElement.textContent = customMessage;
-        //messageElement.style.display = 'block';
+        const messageElement = document.getElementById('customMessage');
+        messageElement.textContent = customMessage;
+        messageElement.style.display = 'block';
 
         // Emoji functionality
         function sendEmoji(emoji) {
